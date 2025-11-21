@@ -70,12 +70,43 @@ Cuando Git te pida credenciales:
 
 ---
 
+## SOLUCIÓN AL ERROR "src refspec main does not match any"
+
+Este error significa que no tienes una rama llamada `main`. Sigue estos pasos:
+
+### Opción 1: Verificar qué rama tienes y hacer push
+```bash
+git branch
+```
+
+Si ves `master` en lugar de `main`, usa:
+```bash
+git push -u origin master
+```
+
+### Opción 2: Crear la rama main si no existe
+```bash
+git checkout -b main
+git push -u origin main
+```
+
+### Opción 3: Si no hay commits todavía
+```bash
+git add .
+git commit -m "Initial commit - Calculadora Android"
+git branch -M main
+git push -u origin main
+```
+
+---
+
 ## Resumen (Ejecuta en orden):
 ```bash
 git remote set-url origin https://github.com/sgomezmalagon/CalculatorTaskk.git
 git status
 git add .
 git commit -m "Initial commit - Calculadora Android"
+git branch -M main
 git push -u origin main
 ```
 
